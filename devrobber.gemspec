@@ -11,12 +11,13 @@ Gem::Specification.new do |s|
   s.email       = ["egami2787@gmail.com"]
   s.homepage    = ""
   s.summary     = "inspect development.log"
-  s.description = "through the inspection of development.log, it alerts unnecessary SQL and so on"
+  s.description = "through the inspection of development.log, it alerts ineffective SQL and render same partial too many times"
+
+  s.add_runtime_dependency "activesupport", ">= 3.0.0"
+  s.add_runtime_dependency "uniform_notifier", ">= 1.6.0"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 4.0.2"
-
-  s.add_development_dependency "sqlite3"
+  s.require_paths = ["lib"]
 end
