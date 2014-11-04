@@ -8,7 +8,6 @@ module Devrobber
       status, headers, response = @app.call(env)
       return [status, headers, response] if file?(headers) || sse?(response) || empty?(response)
 
-      response_body = ""
       if status == 200 && !response_body(response).frozen? && html_request?(headers, response)
         response_body =  response_body(response)
         headers['Content-Length'] = response_body.bytesize.to_s

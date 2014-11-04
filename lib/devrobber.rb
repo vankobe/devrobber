@@ -24,7 +24,7 @@ module Devrobber
     def devrob_message
       messages = ["", "  = = = = = = = = Devrobber = = = = = = = =", ""]
       Thread.current.keys.each do |key|
-        if key =~ /^devrobber_(.*)$/
+        if key.to_s =~ /^devrobber_(.*)$/
           messages << "  [ " + $1.upcase + " ]"
           messages +=  Thread.current[key].select{|k, v| v > 1 }.sort{|(k1, v1), (k2, v2)| -(v1 <=> v2)}.map{|a| "    #{a[1]}:\t#{a[0]}"}
           messages << ""
